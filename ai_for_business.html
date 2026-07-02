@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI for Business Roadmap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg: #050810;
+    --bg-card: #0c1322;
+    --bg-card-2: #0f1a2e;
+    --blue: #2fb6ff;
+    --blue-soft: #7cd4ff;
+    --blue-deep: #0a4d8c;
+    --gold: #f5c842;
+    --green: #2fffb0;
+    --purple: #a78bfa;
+    --coral: #ff6b6b;
+    --text: #d7e6f5;
+    --text-dim: #7d92ab;
+    --line: #16263d;
+  }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  body{
+    background: radial-gradient(circle at 15% 0%, #0a1830 0%, var(--bg) 45%) fixed;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    padding-bottom: 90px;
+  }
+
+  /* ── HEADER ── */
+  header{
+    padding: 72px 40px 52px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  header p.pre{
+    font-family: 'Orbitron', sans-serif;
+    color: var(--blue-soft);
+    letter-spacing: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  header h1{
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(47,182,255,.6), 0 0 48px rgba(47,182,255,.22);
+    margin-bottom: 6px;
+  }
+  header h1 span{ color: var(--blue); }
+  header p.sub-title{
+    font-family: 'Orbitron', sans-serif;
+    color: var(--blue-soft);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  header p.tag{
+    color: var(--text-dim);
+    max-width: 660px;
+    margin: 0 auto 18px;
+    font-size: 16px;
+  }
+  .credit{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: .4px;
+    margin-bottom: 22px;
+  }
+  .credit em{ color: var(--blue-soft); font-style: normal; font-weight: 600; }
+  .badge-row{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .badge{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    border: 1px solid var(--blue-deep);
+    color: var(--blue-soft);
+    background: rgba(47,182,255,.05);
+  }
+
+  /* ── LAYOUT ── */
+  .container{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── PHASE DIVIDER ── */
+  .phase-divider{
+    margin: 64px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .phase-divider .dot{
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+    background: var(--blue); box-shadow: 0 0 10px rgba(47,182,255,.9);
+  }
+  .phase-divider .dot.gold{ background: var(--gold); box-shadow: 0 0 10px rgba(245,200,66,.9); }
+  .phase-divider .dot.green{ background: var(--green); box-shadow: 0 0 10px rgba(47,255,176,.9); }
+  .phase-divider .dot.purple{ background: var(--purple); box-shadow: 0 0 10px rgba(167,139,250,.9); }
+  .phase-divider .dot.coral{ background: var(--coral); box-shadow: 0 0 10px rgba(255,107,107,.9); }
+  .phase-divider hr{ flex: 1; border: none; height: 1px; background: var(--line); }
+  .phase-divider span.label{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--blue-soft); text-transform: uppercase; white-space: nowrap;
+  }
+  .phase-divider span.label.gold{ color: var(--gold); }
+  .phase-divider span.label.green{ color: var(--green); }
+  .phase-divider span.label.purple{ color: var(--purple); }
+  .phase-divider span.label.coral{ color: var(--coral); }
+
+  /* ── STAGE ── */
+  .stage{ margin-top: 42px; }
+  .stage-head{ display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+  .stage-num{
+    font-family: 'Orbitron', sans-serif; font-size: 12px;
+    color: var(--bg); background: var(--blue);
+    padding: 5px 13px; border-radius: 3px; letter-spacing: 1px;
+    white-space: nowrap; flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(47,182,255,.5);
+  }
+  .stage-num.gold{ background: var(--gold); color: #1a1200; box-shadow: 0 0 14px rgba(245,200,66,.5); }
+  .stage-num.green{ background: var(--green); color: #001a0e; box-shadow: 0 0 14px rgba(47,255,176,.5); }
+  .stage-num.purple{ background: var(--purple); color: #100030; box-shadow: 0 0 14px rgba(167,139,250,.5); }
+  .stage-num.coral{ background: var(--coral); color: #1a0000; box-shadow: 0 0 14px rgba(255,107,107,.5); }
+  .stage-title{
+    font-family: 'Orbitron', sans-serif; font-size: 19px; color: #fff; letter-spacing: .8px;
+  }
+  .stage-title small{
+    display: block; font-family: 'Rajdhani', sans-serif;
+    font-size: 14px; color: var(--text-dim); font-weight: 500;
+    letter-spacing: .3px; margin-top: 4px;
+  }
+
+  /* ── CARD ── */
+  .card{
+    background: linear-gradient(160deg, var(--bg-card), var(--bg-card-2));
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--blue-deep);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .card.gold-b{ border-left-color: #7a6010; }
+  .card.green-b{ border-left-color: #0a4d2e; }
+  .card.purple-b{ border-left-color: #3b1f80; }
+  .card.coral-b{ border-left-color: #7a2020; }
+  .card.lab-b{ border-left-color: #ff6b6b; border: 1px solid rgba(255,107,107,.25); background: linear-gradient(160deg,#150c0c,#0f0a1a); }
+
+  .card h3{
+    margin: 0 0 3px;
+    font-family: 'Orbitron', sans-serif; font-size: 15px;
+    color: var(--blue-soft); font-weight: 500; letter-spacing: .4px;
+  }
+  .card h3.gold{ color: var(--gold); }
+  .card h3.green{ color: var(--green); }
+  .card h3.purple{ color: var(--purple); }
+  .card h3.coral{ color: var(--coral); }
+  .card h3.lab{ color: #ff9999; }
+
+  .card .meta{
+    font-size: 12px; color: var(--text-dim);
+    letter-spacing: .5px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .card p{ margin: 0 0 10px; color: var(--text); font-size: 15.5px; }
+  .card p.why{
+    color: var(--text-dim); font-size: 14px; font-style: italic;
+    border-left: 2px solid var(--blue-deep); padding-left: 12px; margin: 0 0 12px;
+  }
+
+  /* ── LAB BLOCK ── */
+  .lab-tag{
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase;
+    background: rgba(255,107,107,.15); color: #ff9999;
+    border: 1px solid rgba(255,107,107,.3);
+    padding: 3px 10px; border-radius: 3px; margin-bottom: 10px;
+  }
+  .lab-step{
+    display: flex; gap: 12px; align-items: flex-start; margin-bottom: 9px;
+  }
+  .lab-step-num{
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: var(--bg); background: #ff6b6b;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .lab-step p{ margin: 0; font-size: 15px; color: var(--text); }
+  .lab-step p strong{ color: #fff; }
+
+  /* ── RESOURCE GRID ── */
+  .res-grid{ display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+  .res-item{ display: flex; align-items: baseline; gap: 10px; }
+  .res-type{
+    font-family: 'Orbitron', sans-serif; font-size: 9px; letter-spacing: 1px;
+    color: var(--bg); background: var(--blue-deep);
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0;
+  }
+  .res-type.yt{ background: #6b1500; color: #ffaa88; }
+  .res-type.book{ background: #1a3d00; color: #88ff90; }
+  .res-type.course{ background: #0a2d6b; color: #7cd4ff; }
+  .res-type.tool{ background: #2d0a6b; color: #d4aaff; }
+  .res-type.article{ background: #4a3000; color: #ffd080; }
+  .res-item a{
+    color: var(--blue-soft); text-decoration: underline;
+    text-underline-offset: 3px; font-size: 14.5px; font-weight: 600;
+  }
+  .res-item a:hover{ color: #fff; }
+
+  /* ── MILESTONE ── */
+  .milestone{
+    margin: 56px 0; text-align: center; padding: 28px 24px;
+    border: 1px solid var(--blue-deep); border-radius: 8px;
+    background: linear-gradient(180deg, rgba(47,182,255,.06), transparent);
+  }
+  .milestone .tag-label{
+    font-family: 'Orbitron', sans-serif; color: var(--blue);
+    font-size: 11px; letter-spacing: 3px;
+  }
+  .milestone p{ color: var(--text-dim); margin: 8px 0 0; font-size: 15px; }
+
+  /* ── FOOTER ── */
+  footer{
+    text-align: center; margin-top: 70px; padding-top: 30px;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim); font-size: 13px; letter-spacing: .5px;
+  }
+  footer .brand{
+    font-family: 'Orbitron', sans-serif; color: var(--blue-soft);
+    letter-spacing: 2px; font-size: 14px; margin-bottom: 8px;
+  }
+  footer .credit-footer{
+    font-size: 13px; color: var(--text-dim); margin-top: 6px;
+  }
+  footer .credit-footer em{ color: var(--blue-soft); font-style: normal; font-weight: 600; }
+
+  /* ── PRINT ── */
+  @media print{
+    @page{ size: A4; margin: 0; }
+    body{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header{ padding: 46px 40px 32px; }
+    header h1{ font-size: 34px; }
+    .phase-divider{ margin: 44px 0 6px; break-after: avoid; }
+    .stage{ margin-top: 28px; break-inside: avoid-page; }
+    .stage-head{ break-after: avoid; }
+    .card{ break-inside: avoid; padding: 16px 20px; margin-bottom: 11px; }
+    .lab-b{ break-inside: avoid; }
+    .milestone{ break-inside: avoid; margin: 32px 0; }
+    .res-item a{ color: var(--blue-soft) !important; text-decoration: underline !important; }
+    footer{ margin-top: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="pre">Your practical business path</p>
+  <h1>AI FOR <span>BUSINESS</span></h1>
+  <p class="sub-title">14-WEEK ROADMAP</p>
+  <p class="tag">From understanding AI to marketing it, automating with it, freelancing on it, and building income streams from it — no coding required, 100% free.</p>
+  <p class="credit">Coordinated with passion and love, by <em>Omar Duhaim</em><br>
+  All courses and resources listed are free or have a free tier. Links verified as of 2025–2026.</p>
+  <div class="badge-row">
+    <span class="badge">ALL FREE</span>
+    <span class="badge">NO CODING</span>
+    <span class="badge">5–10 HRS / WEEK</span>
+    <span class="badge">14 WEEKS</span>
+    <span class="badge">INCOME FOCUSED</span>
+    <span class="badge">REAL PROJECTS</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ════════ PHASE 1 ════════ -->
+  <div class="phase-divider">
+    <div class="dot"></div>
+    <span class="label">Phase 1 — AI literacy &amp; foundations · Weeks 1–3</span>
+    <hr>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num">WEEK 1</div>
+      <div class="stage-title">One Million Prompters — start here
+        <small>Official AI literacy certification · 4 modules · ~4 hrs · Dubai Future Foundation</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>One Million Prompters</h3>
+      <div class="meta">Free certified course · 4 modules · ~4 hours</div>
+      <p>Four one-hour modules covering generative AI basics, how to write effective prompts, AI productivity tools, and creative AI applications. Each module ends with a short test. You get a certificate upon completion. This is your formal entry point — every other week in this roadmap builds on the vocabulary and confidence you build here.</p>
+      <p class="why">Do this before anything else. It frames every tool you'll use later and gives you a language for talking about AI with credibility.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://dub.ai/en/omp/" target="_blank">dub.ai/en/omp — Start the free certification</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 1 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 1</div>
+      <h3 class="lab">Your first AI prompt session</h3>
+      <div class="meta">~1 hour · tools: Claude.ai or ChatGPT · no signup cost</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Open Claude.ai or ChatGPT. Write a prompt asking it to explain your current job or business in simpler terms — see how it responds.</p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Ask it to write a short professional bio for you. Edit the output to sound like you. This is the core vibe-coding skill: <strong>prompt → read → correct → ship.</strong></p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Ask it three business questions you've genuinely wondered about. Notice where it's confident versus vague — this is how you start calibrating trust.</p></div>
+      <div class="res-grid" style="margin-top:10px">
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://claude.ai" target="_blank">claude.ai — Free tier available</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://chat.openai.com" target="_blank">chat.openai.com — Free tier available</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num">WEEK 2</div>
+      <div class="stage-title">How AI actually works — for non-technical people
+        <small>Understand the tool before you depend on it for business decisions</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>AI for Everyone — Andrew Ng</h3>
+      <div class="meta">Free to audit · ~6 hrs · Coursera / DeepLearning.AI</div>
+      <p>The most respected non-technical AI course available. Andrew Ng (co-founder of Coursera, ex-Google Brain) explains what AI can and can't do, how to spot opportunities in your own business, and how to build an AI strategy. Zero coding, zero math. Built specifically for business people and managers.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank">coursera.org/learn/ai-for-everyone — Audit free</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Elements of AI — University of Helsinki</h3>
+      <div class="meta">Free · self-paced · certificate · 2M+ students worldwide</div>
+      <p>Used by governments across the EU to train citizens on AI. No math or coding. Covers what AI is, how it learns, and its real impact on business and society — structured as short, readable chapters with exercises you can do in a browser.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.elementsofai.com/" target="_blank">elementsofai.com — Start free course</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num">WEEK 3</div>
+      <div class="stage-title">Vibe coding survival kit — just enough to build
+        <small>Read AI-generated code · catch obvious mistakes · direct it clearly · ship something</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>What you actually need from code</h3>
+      <div class="meta">~5 hrs total · mix of free resources</div>
+      <p>You are not becoming a developer. You need to recognise what HTML tags look like, understand roughly what a function does, and know what "API call" means — enough to describe what you want to an AI tool and verify what it gives back. That's the entire skill needed here. Watch the first 90 minutes of each video below; you do not need to finish them.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/watch?v=salY_Sm6mv4" target="_blank">freeCodeCamp — HTML Full Course (watch first 90 min only)</a></div>
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/watch?v=jS4aFq5-91M" target="_blank">freeCodeCamp — JavaScript for Beginners (watch first 60 min only)</a></div>
+        <div class="res-item"><span class="res-type course">DOCS</span><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">Anthropic — Prompt Engineering Guide (read this carefully)</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 2 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 3</div>
+      <h3 class="lab">Build your first real AI product — a personal landing page</h3>
+      <div class="meta">~2 hrs · tools: bolt.new · zero setup · free</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Go to <strong>bolt.new</strong>. Type: <em>"Build me a clean, modern personal landing page. My name is [your name]. I help [what you do]. Dark background, blue accents. Include a short bio, 3 services I offer, and a contact button."</em></p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Read what it generates. Find one thing wrong or that you want changed. Tell it specifically: <em>"Change the heading font to be larger"</em> or <em>"Remove the pricing section."</em></p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Iterate 3–5 times until it looks like something you'd actually share. This single session teaches you more about vibe coding than 3 hours of tutorials.</p></div>
+      <div class="lab-step"><div class="lab-step-num">4</div><p>Download the HTML file. You now have a real deliverable you built without writing a single line of code.</p></div>
+      <div class="res-grid" style="margin-top:10px">
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://bolt.new" target="_blank">bolt.new — Build in browser, no setup needed</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://replit.com" target="_blank">replit.com — Alternative free coding environment</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ PHASE 2 ════════ -->
+  <div class="phase-divider">
+    <div class="dot gold"></div>
+    <span class="label gold">Phase 2 — AI marketing · Weeks 4–5</span>
+    <hr>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num gold">WEEK 4</div>
+      <div class="stage-title">AI in marketing — content, ads, SEO, and campaigns
+        <small>Use AI to do the work of a full marketing team</small>
+      </div>
+    </div>
+
+    <div class="card gold-b">
+      <h3 class="gold">AI Marketing — Alison (free certificate)</h3>
+      <div class="meta">Free · self-paced · Alison.com</div>
+      <p>Covers AI-driven consumer analysis, personalised campaign optimisation, chatbots for customer engagement, AI content creation, and ethical AI marketing. Includes real-world case studies from businesses that have already implemented these strategies. Certificate optional and paid, but the course content is entirely free.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://alison.com/course/ai-marketing" target="_blank">alison.com/course/ai-marketing — Start free</a></div>
+      </div>
+    </div>
+
+    <div class="card gold-b">
+      <h3 class="gold">Salesforce Trailhead — AI for Marketers</h3>
+      <div class="meta">Free · interactive modules · Salesforce</div>
+      <p>Short, practical interactive lessons on AI fundamentals for marketing, using generative AI to create personalised email and social content, AI agents for customer service, and predictive analytics for campaign targeting.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.salesforce.com/marketing/ai/ai-marketing-course/" target="_blank">salesforce.com — AI for Marketers (free)</a></div>
+      </div>
+    </div>
+
+    <div class="card gold-b">
+      <h3 class="gold">AI in Digital Marketing — Great Learning Academy</h3>
+      <div class="meta">Free · self-paced · certificate · Great Learning</div>
+      <p>Uses ChatGPT, DALL·E, and Synthesia to automate ad copy, social media posts, and video content — reducing campaign creation from days to minutes. Covers AI-powered segmentation, SEO automation, and tracking AI-driven campaign results.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/ai-in-digital-marketing" target="_blank">mygreatlearning.com — AI in Digital Marketing (free)</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 3 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 4</div>
+      <h3 class="lab">Build a 30-day AI content calendar for a real business</h3>
+      <div class="meta">~2 hrs · tools: Claude or ChatGPT + Canva (free tier)</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Pick a real business — yours, a friend's, or a made-up one. Prompt Claude: <em>"Create a 30-day Instagram content calendar for [business type]. Include post topic, caption hook, and hashtags for each day. Mix educational, promotional, and community posts."</em></p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Take 5 of the captions it generates and open <strong>Canva (free)</strong>. Use AI-generated text from Claude and a free Canva template to produce 5 ready-to-post graphics.</p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Save the calendar as a PDF. This is now a real deliverable you can sell as an "AI Content Package" gig on Fiverr.</p></div>
+      <div class="res-grid" style="margin-top:10px">
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://www.canva.com" target="_blank">canva.com — Free tier, AI image & design generation</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://claude.ai" target="_blank">claude.ai — Content generation</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 5 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num gold">WEEK 5</div>
+      <div class="stage-title">AI content, video, and social media at scale
+        <small>Produce a week of content in one afternoon with AI</small>
+      </div>
+    </div>
+
+    <div class="card gold-b">
+      <h3 class="gold">Digital Marketing with AI — 20+ Practical Examples</h3>
+      <div class="meta">Free video · 34 min · H-Educate</div>
+      <p>Hands-on walkthrough of AI for content ideas, keyword research, email marketing, SEO, and growth hacking. Real tools, real prompts, real outputs — fast and immediately applicable.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/watch?v=K8YImPpBhF0" target="_blank">YouTube — Digital Marketing with AI (H-Educate, 34 min)</a></div>
+      </div>
+    </div>
+
+    <div class="card gold-b">
+      <h3 class="gold">Matt Wolfe — AI tools for business & content</h3>
+      <div class="meta">Free YouTube channel · updated weekly</div>
+      <p>The go-to channel for staying current on practical AI tools for creators and business owners. Covers new tools, content workflows, business use cases, and income strategies — short, watchable, no filler. Subscribe and watch 2–3 videos this week most relevant to your business type.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/@mreflow" target="_blank">youtube.com/@mreflow — Matt Wolfe AI channel</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ PHASE 3 ════════ -->
+  <div class="phase-divider">
+    <div class="dot green"></div>
+    <span class="label green">Phase 3 — AI agents &amp; automation · Weeks 6–9</span>
+    <hr>
+  </div>
+
+  <!-- WEEK 6-7 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num green">WEEK 6–7</div>
+      <div class="stage-title">Build AI agents — no code, real business automation
+        <small>Automate emails, leads, scheduling, content pipelines — visually, with n8n</small>
+      </div>
+    </div>
+
+    <div class="card green-b">
+      <h3 class="green">freeCodeCamp — Learn n8n to Build AI Agents</h3>
+      <div class="meta">Free · YouTube · beginner · KodeKloud instructor</div>
+      <p>A complete, structured guide to n8n — the free visual automation platform. You'll build a working email AI agent, research workflow, and customer support system. No coding. One of the most practical free resources on AI automation right now — everything covered is directly applicable to client work.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/watch?v=2GZ2SNXWK-c" target="_blank">YouTube — n8n Full Course: Build &amp; Sell AI Automations (6 hrs)</a></div>
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.freecodecamp.org/news/learn-n8n-to-design-develop-and-deploy-production-grade-ai-agents/" target="_blank">freecodecamp.org — n8n AI Agents written guide</a></div>
+      </div>
+    </div>
+
+    <div class="card green-b">
+      <h3 class="green">Build AI Agents with n8n — free Udemy hands-on course</h3>
+      <div class="meta">Free · Udemy · designed for business owners</div>
+      <p>Step-by-step: build a lead qualification agent and a customer chat agent using n8n and OpenAI. Designed specifically for non-coders who want to sell automation services. Includes pre-built JSON workflow files you can copy and adapt immediately for clients.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.udemy.com/course/build-ai-agents-with-n8n-free-hands-on-training/" target="_blank">udemy.com — Build AI Agents with n8n (free)</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://n8n.io" target="_blank">n8n.io — Free trial, visual workflow builder</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 4 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 7</div>
+      <h3 class="lab">Build a real AI automation for your own business</h3>
+      <div class="meta">~3 hrs · tools: n8n free trial + Gmail or Notion</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Sign up for a free n8n cloud account at n8n.io. Watch the 25-minute official AI agents guide first.</p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p><strong>Build one of these three workflows:</strong> (A) Auto-reply to incoming Gmail enquiries using an AI-written response. (B) When a form is submitted on your site, automatically create a Notion task and send yourself a summary. (C) Every morning, pull 5 AI news headlines and email them to yourself, formatted.</p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Screenshot your working workflow. This is your first automation portfolio piece — the kind of thing you'll sell in Phase 4.</p></div>
+      <div class="res-grid" style="margin-top:10px">
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://n8n.io/ai-agents/" target="_blank">n8n.io/ai-agents — Official 25-min beginner guide</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://notion.so" target="_blank">notion.so — Free tier available</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 8-9 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num green">WEEK 8–9</div>
+      <div class="stage-title">Generative AI for business — Microsoft + Andrew Ng
+        <small>AI strategy, integration, tools, and ethics — the full picture</small>
+      </div>
+    </div>
+
+    <div class="card green-b">
+      <h3 class="green">Generative AI for Beginners — Microsoft</h3>
+      <div class="meta">Free · GitHub · 18 lessons · ~10 hrs</div>
+      <p>Microsoft's official 18-lesson curriculum: how generative AI works, prompt engineering, building AI-powered tools, responsible AI, and how to integrate AI into real products and businesses. The most comprehensive free business AI curriculum available anywhere.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://github.com/microsoft/generative-ai-for-beginners" target="_blank">github.com/microsoft/generative-ai-for-beginners</a></div>
+      </div>
+    </div>
+
+    <div class="card green-b">
+      <h3 class="green">Generative AI for Everyone — Andrew Ng</h3>
+      <div class="meta">Free to audit · Coursera · DeepLearning.AI · ~5 hrs</div>
+      <p>Andrew Ng's newer course focused on generative AI tools specifically — how to use them at work, prompt engineering techniques, and how to build an AI business strategy. More practical and current than his original "AI for Everyone."</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.coursera.org/learn/generative-ai-for-everyone" target="_blank">coursera.org — Generative AI for Everyone (audit free)</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ PHASE 4 ════════ -->
+  <div class="phase-divider">
+    <div class="dot purple"></div>
+    <span class="label purple">Phase 4 — Freelancing &amp; online income · Weeks 10–11</span>
+    <hr>
+  </div>
+
+  <!-- WEEK 10 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num purple">WEEK 10</div>
+      <div class="stage-title">Freelancing with AI on Fiverr &amp; Upwork
+        <small>Turn every skill you've built into a paid service — starting this week</small>
+      </div>
+    </div>
+
+    <div class="card purple-b">
+      <h3 class="purple">Fiverr's Official Free Freelancing Course</h3>
+      <div class="meta">Free · Fiverr Learn · beginner · certificate</div>
+      <p>Fiverr's own course on becoming a top seller — setting up your profile, writing gig descriptions that convert, getting your first client, managing orders, and scaling. Practical, platform-specific, taught by top Fiverr sellers.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://learn.fiverr.com/courses/online-freelancing-essentials-be-a-successful-fiverr-seller" target="_blank">learn.fiverr.com — Online Freelancing Essentials (free)</a></div>
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://learn.fiverr.com" target="_blank">learn.fiverr.com — Full free course library</a></div>
+      </div>
+    </div>
+
+    <div class="card purple-b">
+      <h3 class="purple">What AI services are selling right now</h3>
+      <div class="meta">Reference list — based on 2025–2026 Fiverr &amp; Upwork data</div>
+      <p>The highest-selling AI freelance services: AI content writing packages, AI-generated social media graphics (Canva + Midjourney), chatbot setup for small businesses, n8n/Make automation workflows, AI video scripts, SEO content bundles, and AI email marketing sequences. You already have the skills for all of these after Phase 2 and 3.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/results?search_query=make+money+freelancing+with+AI+2025" target="_blank">YouTube — "make money freelancing with AI 2025" (search)</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://www.fiverr.com/seller_onboarding" target="_blank">fiverr.com/seller_onboarding — Become a seller today</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://www.upwork.com" target="_blank">upwork.com — Create your freelancer profile</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 5 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 10</div>
+      <h3 class="lab">Publish your first 3 Fiverr gigs this week</h3>
+      <div class="meta">~3 hrs · goal: live, published gigs · not just a draft</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Create a Fiverr seller account. Use Claude to write your profile bio: <em>"Write a professional Fiverr seller bio for someone who offers AI-powered content writing, social media content packages, and business automation using n8n. Friendly but credible tone."</em></p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Publish Gig 1: <strong>30-day AI social media content calendar</strong> (you built this in Lab 3). Starting price: $15–$25.</p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Publish Gig 2: <strong>AI-written blog post or email sequence</strong> — 5 emails for any business, written with Claude. Starting price: $20.</p></div>
+      <div class="lab-step"><div class="lab-step-num">4</div><p>Publish Gig 3: <strong>Personal or business landing page</strong> built with bolt.new + your design. Starting price: $30.</p></div>
+    </div>
+  </div>
+
+  <!-- WEEK 11 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num purple">WEEK 11</div>
+      <div class="stage-title">Passive income streams with AI
+        <small>Digital products, ebooks, templates — income that doesn't require your time</small>
+      </div>
+    </div>
+
+    <div class="card purple-b">
+      <h3 class="purple">ChatGPT &amp; AI: 23 Ways to Earn Money Online</h3>
+      <div class="meta">Free · Udemy via Class Central</div>
+      <p>Covers writing and selling AI-assisted ebooks on Amazon KDP, AI-generated art on Shutterstock and Etsy, AI-powered T-shirt businesses, copywriting gigs, and passive income blueprints — with real walkthroughs for each income stream.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://www.classcentral.com/course/udemy-chatgpt-midjourney-ai-online-business-freelancing-passive-income-283436" target="_blank">classcentral.com — ChatGPT &amp; AI: 23 Ways to Earn (free)</a></div>
+      </div>
+    </div>
+
+    <!-- 🔴 LAB 6 -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ PRACTICAL LAB — Week 11</div>
+      <h3 class="lab">Publish your first digital product on Gumroad</h3>
+      <div class="meta">~3 hrs · tools: Claude + Canva + Gumroad · goal: live product page</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Pick a topic you know something about — your profession, a hobby, a city, a workflow. Prompt Claude: <em>"Write a practical 10-page ebook on [topic] for beginners. Use clear headings, bullet points, and include 5 actionable tips per section."</em></p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Open Canva. Use a free ebook template. Paste Claude's content, choose a cover image, export as PDF. Total design time: 30 minutes.</p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Create a free Gumroad account. Upload the PDF. Set the price at $5–$15 or "pay what you want." Write your product description using Claude.</p></div>
+      <div class="lab-step"><div class="lab-step-num">4</div><p>Share the link. You now have a passive income product — it sells whether you're working or sleeping.</p></div>
+      <div class="res-grid" style="margin-top:10px">
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://gumroad.com" target="_blank">gumroad.com — Sell digital products for free</a></div>
+        <div class="res-item"><span class="res-type tool">TOOL</span><a href="https://www.canva.com" target="_blank">canva.com — Free ebook templates</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ PHASE 5 ════════ -->
+  <div class="phase-divider">
+    <div class="dot coral"></div>
+    <span class="label coral">Phase 5 — Build your AI brand &amp; launch · Weeks 12–14</span>
+    <hr>
+  </div>
+
+  <!-- WEEK 12-13 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num coral">WEEK 12–13</div>
+      <div class="stage-title">AI business strategy &amp; professional credentials
+        <small>Position yourself as an AI-first professional with legitimate certifications</small>
+      </div>
+    </div>
+
+    <div class="card coral-b">
+      <h3 class="coral">Kelley School of Business — GenAI 101</h3>
+      <div class="meta">Free · Indiana University Business School · digital badge</div>
+      <p>A top-ranked business school's free GenAI course built for professionals — no technical background needed. Covers practical AI strategy, responsible AI in business, and real workflows. Ends with a shareable digital badge from a credible institution you can add to LinkedIn.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://kelley.iu.edu/learnai/index.html" target="_blank">kelley.iu.edu/learnai — GenAI 101 free badge course</a></div>
+      </div>
+    </div>
+
+    <div class="card coral-b">
+      <h3 class="coral">Google AI Essentials</h3>
+      <div class="meta">Free · Google · certificate · ~5 hrs</div>
+      <p>Google's official AI skills training for non-technical professionals in marketing, sales, HR, and operations. Covers Gemini, AI productivity tools, effective prompting, brainstorming, research, and business communication with AI. Google credentials carry real professional weight.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type course">COURSE</span><a href="https://grow.google/ai" target="_blank">grow.google/ai — Google AI Skills (free)</a></div>
+      </div>
+    </div>
+
+    <div class="card coral-b">
+      <h3 class="coral">Stay current — channels to follow weekly</h3>
+      <div class="meta">Free YouTube channels · subscribe and watch 1–2 videos/week</div>
+      <p>AI moves fast. These three channels will keep you updated on new tools, income opportunities, and business use cases — without overwhelming you with technical content.</p>
+      <div class="res-grid">
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/@mreflow" target="_blank">Matt Wolfe — New AI tools and business applications</a></div>
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/@aiadvantage" target="_blank">The AI Advantage — Business automation and income ideas</a></div>
+        <div class="res-item"><span class="res-type yt">YOUTUBE</span><a href="https://www.youtube.com/@SkillLeapAI" target="_blank">Skill Leap AI — Practical AI tool walkthroughs</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 14 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-num coral">WEEK 14</div>
+      <div class="stage-title">Launch week — your AI business is live
+        <small>This is not a homework week. This is a shipping week.</small>
+      </div>
+    </div>
+
+    <div class="card coral-b">
+      <h3 class="coral">What you should have built by now</h3>
+      <div class="meta">Checklist — if any are missing, build them this week</div>
+      <p>✦ &nbsp;A personal landing page (Lab 2) — your online presence<br>
+         ✦ &nbsp;A 30-day content calendar product (Lab 3) — sellable on Fiverr<br>
+         ✦ &nbsp;At least one working n8n automation (Lab 4) — your automation portfolio<br>
+         ✦ &nbsp;3 active Fiverr gigs (Lab 5) — your service income channel<br>
+         ✦ &nbsp;1 digital product on Gumroad (Lab 6) — your passive income channel<br>
+         ✦ &nbsp;2–3 professional certifications — One Million Prompters, Elements of AI, Kelley / Google</p>
+    </div>
+
+    <!-- 🔴 LAB 7 — FINAL -->
+    <div class="card lab-b">
+      <div class="lab-tag">⚡ FINAL LAB — Week 14</div>
+      <h3 class="lab">Offer your AI automation service to one real business — for free</h3>
+      <div class="meta">Goal: your first real client and testimonial</div>
+      <div class="lab-step"><div class="lab-step-num">1</div><p>Identify one local business, restaurant, salon, or small brand that has no AI workflow. Reach out — by email, DM, or in person. Offer to <strong>set up one free automation</strong> for them using n8n (e.g., auto-reply to WhatsApp enquiries, or weekly social post scheduling).</p></div>
+      <div class="lab-step"><div class="lab-step-num">2</div><p>Do the work. It should take you 2–3 hours maximum using what you learned in Weeks 6–7. Use Claude to write the prompts inside the workflow.</p></div>
+      <div class="lab-step"><div class="lab-step-num">3</div><p>Ask for a written testimonial or a short video review. This becomes your first real social proof — more valuable than any course certificate.</p></div>
+      <div class="lab-step"><div class="lab-step-num">4</div><p><strong>Charge the second client.</strong> $150–$500 for a basic automation setup is a normal market rate in 2025–2026. You now have a business.</p></div>
+    </div>
+  </div>
+
+  <div class="milestone">
+    <div class="tag-label">END STATE — WEEK 14</div>
+    <p>You have real AI skills, multiple certifications, active income channels (Fiverr + Gumroad), your first client, and the ability to keep learning as AI evolves — because you understand the fundamentals, not just the tools.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="brand">AI FOR BUSINESS — 14-WEEK ROADMAP</div>
+  <p class="credit-footer">Coordinated with passion and love, by <em>Omar Duhaim</em></p>
+  <p style="margin-top:6px; color: var(--text-dim); font-size:12px;">All courses and resources listed are free or have a free tier · Links verified as of 2025–2026 · No coding required</p>
+</footer>
+
+</body>
+</html>
